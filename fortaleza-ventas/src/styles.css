@@ -27,6 +27,28 @@
   button:hover {
       cursor: pointer;
   }
+
+  /*---------------------------------------------*/
+a {
+	font-family: Ubuntu-Regular;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover {
+	text-decoration: none;
+  color: #403866;
+}
   
   /*//////////////////////////////////////////////////////////////////
   [ login ]*/
@@ -63,7 +85,7 @@
   .login100-form-title {
     font-family: Ubuntu-Bold;
     font-size: 30px;
-    color: #403866;
+    color: #827ffe;
     line-height: 1.2;
     padding-bottom: 51px;
   }
@@ -143,6 +165,15 @@
     -o-transform: scale(1);
     transform: scale(1);
   }
+
+  /*//////////////////////////////////////////////////////////////////
+[ Utility ]*/
+.txt1 {
+  font-family: Ubuntu-Regular;
+  font-size: 16px;
+  color: #827ffe;
+  line-height: 1.4;
+}
   
   /*------------------------------------------------------------------
   [ Button ]*/
@@ -152,7 +183,7 @@
     display: -moz-box;
     display: -ms-flexbox;
     flex-wrap: wrap;
-    margin-top: 5px;
+    margin-top: 10px;
   }
   
   .login100-form-btn {
