@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "lafortaleza-ventas": {
+      "hosting": {
+        "fortaleza-ventas": [
+          "lafortaleza-ventas"
+        ]
+      }
+    }
+  }
+}

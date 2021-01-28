@@ -1,0 +1,215 @@
+<h1 class=" display-4 text-center section-title">Colores</h1>
+<hr>
+<br>
+
+<div class="collapse" 
+        id="formColor">
+
+    <form autocomplete="off" 
+            [formGroup]="form" 
+            (ngSubmit)="submitColor( form.value )">
+
+        <div lass="form-group row">
+
+            <div class="col">
+
+                <div class="float-right">
+
+                    <button type="button" 
+                            class="btn btn-outline-info mr-5 mb-5"                 
+                            data-toggle="collapse" 
+                            data-target="#formColor" 
+                            aria-expanded="false" 
+                            aria-controls="formColor">
+
+                        <i class="fas fa-window-close"></i>
+
+                        Cerrar
+
+                    </button>
+        
+                </div>
+                <br>
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <div class="col-4" >
+
+                <label>ID</label>
+
+                <input type="text" 
+                        class="form-control"
+                        readonly
+                        formControlName="id">
+
+            </div>
+
+            <div class="col-6">
+
+                <label>Color*</label>
+
+                <input type="text" 
+                        class="form-control"
+                        formControlName="color"
+                        [class.is-invalid]="invalidColor">
+
+                <small class="text-danger"
+                        *ngIf="invalidColor">*Este campo es obligatorio</small>
+
+            </div>
+
+            <div class="col-2">
+
+                <label>Código*</label>
+
+                <input type="text" 
+                        class="form-control"
+                        formControlName="code"
+                        [class.is-invalid]="invalidCode">
+
+                <small class="text-danger"
+                        *ngIf="invalidCode">*Este campo es obligatorio</small>
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <div class="col">
+
+                <label>Descripción</label>
+
+                <textarea class="form-control" 
+                            rows="3"
+                            formControlName="description"></textarea>
+
+            </div>
+
+        </div>
+
+        <button type="submit" 
+                class="btn btn-outline-success">
+
+            <i class="fas fa-save"></i>
+
+            Guardar
+
+        </button>
+
+        <button type="button" 
+                class="btn btn-outline-danger ml-1"
+                (click)="clearForm()">
+
+                <i class="fas fa-window-close"></i>
+
+                Cancelar
+
+        </button>
+
+      </form>
+      
+</div>
+<br>
+
+<div class="form-group row">
+
+    <div class="col-8">
+
+        <!-- <input type="text" class="form-control" placeholder="Buscar color..."> -->
+
+    </div>
+
+    <div class="col-2">
+
+        <!-- <button class="btn btn-outline-primary">
+
+            <i class="fas fa-search"></i>
+
+            Buscar
+
+        </button> -->
+
+    </div>
+
+    <div class="col">
+
+        <button class="btn btn-outline-primary" 
+                type="button" 
+                data-toggle="collapse" 
+                data-target="#formColor" 
+                aria-expanded="false" 
+                aria-controls="formColor">
+
+            <i class="fas fa-plus"></i>
+
+            Nuevo
+
+        </button>
+
+    </div>
+
+</div>
+
+<table class="table table-bordered">
+
+    <thead class="table-header text-center text-header">
+
+      <tr>
+
+        <th scope="col">Código</th>
+        <th scope="col">Color</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Editar/Borrar</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let color of colors">
+
+        <th scope="row">{{ color.code | uppercase }}</th>
+
+        <td scope="row">{{ color.color | titlecase }}</td>
+
+        <td scope="row">{{ color.description }}</td>
+
+        <td class="text-center">
+
+            <button class="btn btn-outline-info" 
+                    type="button" 
+                    data-toggle="collapse" 
+                    data-target="#formColor" 
+                    aria-expanded="false" 
+                    aria-controls="formColor"
+                    (click)="fillForm( color )">
+
+                <i class="fas fa-edit"></i>
+
+            </button>
+
+            <button class="btn btn-outline-danger ml-1" 
+                    type="button" 
+                    (click)="deleteColor( color )">
+
+                <i class="fas fa-trash"></i>
+
+            </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+  <div *ngIf="colors.length === 0" class="alert alert-primary text-center" role="alert">
+    No tiene colores, agregue uno para verlo en la tabla...
+  </div>

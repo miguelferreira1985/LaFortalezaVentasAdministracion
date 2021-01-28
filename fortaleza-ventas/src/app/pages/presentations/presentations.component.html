@@ -1,0 +1,204 @@
+<h1 class=" display-4 text-center section-title">Presentaciones</h1>
+<hr>
+<br>
+
+<div class="collapse" 
+        id="formPresentation">
+
+    <form autocomplete="off" 
+            [formGroup]="form" 
+            (ngSubmit)="submitPresentation( form.value )">
+
+        <div class="form-group row">
+
+            <div class="col-10"></div>
+
+            <div class="col-2">
+
+                    <button type="button" 
+                            class="btn btn-outline-info mr-5 mb-5"                 
+                            data-toggle="collapse" 
+                            data-target="#formPresentation" 
+                            aria-expanded="false" 
+                            aria-controls="formPresentation">
+
+                        <i class="fas fa-window-close"></i>
+
+                        Cerrar
+
+                    </button>
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <div class="col-4" >
+
+                <label>ID</label>
+
+                <input type="text" 
+                        class="form-control"
+                        readonly
+                        formControlName="id">
+
+            </div>
+
+            <div class="col-6">
+
+                <label>Presentación*</label>
+
+                <input type="text" 
+                        class="form-control"
+                        formControlName="presentation">
+
+            </div>
+
+            <div class="col-2">
+
+                <label>Código*</label>
+
+                <input type="text" 
+                        class="form-control"
+                        formControlName="code">
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <div class="col">
+
+                <label>Descripción</label>
+
+                <textarea class="form-control" 
+                            rows="3"
+                            formControlName="description"></textarea>
+
+            </div>
+
+        </div>
+
+        <button type="submit" 
+                class="btn btn-outline-success">
+
+            <i class="fas fa-save"></i>
+
+            Guardar
+
+        </button>
+
+        <button type="button" 
+                class="btn btn-outline-danger ml-1"
+                (click)="clearForm()">
+
+                <i class="fas fa-window-close"></i>
+
+                Cancelar
+
+        </button>
+
+      </form>
+      
+</div>
+<br>
+
+<div class="form-group row">
+
+    <div class="col-8">
+
+        <!-- <input type="text" class="form-control" placeholder="Buscar color..."> -->
+
+    </div>
+
+    <div class="col-2">
+
+        <!-- <button class="btn btn-outline-primary">
+
+            <i class="fas fa-search"></i>
+
+            Buscar
+
+        </button> -->
+
+    </div>
+
+    <div class="col">
+
+        <button class="btn btn-outline-primary" 
+                type="button" 
+                data-toggle="collapse" 
+                data-target="#formPresentation" 
+                aria-expanded="false" 
+                aria-controls="formPresentation">
+
+            <i class="fas fa-plus"></i>
+
+            Nuevo
+
+        </button>
+
+    </div>
+
+</div>
+
+<table class="table table-bordered">
+
+    <thead class="table-header text-center text-header">
+
+      <tr>
+
+        <th scope="col">Código</th>
+        <th scope="col">Presentación</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Editar/Borrar</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let presentation of presentations">
+
+        <th scope="row">{{ presentation.code | uppercase }}</th>
+
+        <td scope="row">{{ presentation.presentation | titlecase }}</td>
+
+        <td scope="row">{{ presentation.description }}</td>
+
+        <td class="text-center">
+
+            <button class="btn btn-outline-info" 
+                    type="button" 
+                    data-toggle="collapse" 
+                    data-target="#formPresentation" 
+                    aria-expanded="false" 
+                    aria-controls="formPresentation"
+                    (click)="fillForm( presentation )">
+
+                <i class="fas fa-edit"></i>
+
+            </button>
+
+            <button class="btn btn-outline-danger ml-1" 
+                    type="button" 
+                    (click)="deletePresentation( presentation )">
+
+                <i class="fas fa-trash"></i>
+
+            </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+  <div *ngIf="presentations.length === 0" class="alert alert-primary text-center" role="alert">
+    No tiene presentaciones, agregue uno para verlo en la tabla...
+  </div>

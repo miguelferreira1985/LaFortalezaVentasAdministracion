@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyAxKBeWr492Yc-cZsgc3IP5o824oKLX8jU',
+    authDomain: 'lafortaleza-ventas.firebaseapp.com',
+    databaseURL: 'https://lafortaleza-ventas-default-rtdb.firebaseio.com',
+    projectId: 'lafortaleza-ventas',
+    storageBucket: 'lafortaleza-ventas.appspot.com',
+    messagingSenderId: '253159524897',
+    appId: '1:253159524897:web:637922925e453d7f693160',
+  }
 };
 
 /*

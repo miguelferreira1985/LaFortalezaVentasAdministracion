@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { ColorsComponent } from './pages/colors/colors.component';
+import { PresentationsComponent } from './pages/presentations/presentations.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { ProvidersComponent } from './pages/providers/providers.component';
 
 const routes: Routes = [
+  { path: 'providers', component: ProvidersComponent},
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'presentations', component: PresentationsComponent},
+  { path: 'colors', component: ColorsComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'resetPassword', component: ResetPasswordComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 
